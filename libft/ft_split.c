@@ -6,7 +6,7 @@
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 11:11:34 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/08 20:14:16 by sbaeyens         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:33:16 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -47,10 +47,9 @@ char	**ft_split(char const *s, char c)
 
 	y = 0;
 	v = 0;
-	i = 0;
 	x = 0;
 	x = ft_check(s, c, 0, -1);
-	tab = malloc(sizeof(char *) * x);
+	tab = malloc(sizeof(char *) * x + 1);
 	if (x == 0)
 		return (0);
 	while (y < x)
@@ -63,5 +62,6 @@ char	**ft_split(char const *s, char c)
 		y++;
 		v = 0;
 	}
+	tab[y] = NULL;
 	return (tab);
 }
