@@ -6,11 +6,10 @@
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 11:11:34 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/04 12:16:56 by sbaeyens         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:14:16 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_check(char const *s, char c, int p, int m)
 {
@@ -65,13 +64,4 @@ char	**ft_split(char const *s, char c)
 		v = 0;
 	}
 	return (tab);
-}
-
-int	main(int c, char **v)
-{
-	(void)c;
-	int	x = 0;
-	char **t = ft_split(v[1], v[2][0]);
-	while (t[x])
-		printf("%s ",t[x++]);
 }

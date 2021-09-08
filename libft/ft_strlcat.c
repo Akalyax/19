@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 15:56:43 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/01 16:05:17 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/01 13:17:35 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:30:39 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	x;
+#include "libft.h"
 
-	x = 0;
-	if (n <= 0)
-		return (0);
-	while (*s1 && *s1 == *s2 && x < n - 1)
-		x++;
-	return (*s1 - *s2);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t		t1;
+	size_t		t2;
+	char		*d;
+	const char	*s;
+
+	s = src;
+	d = dst;
+	t1 = dstsize;
+	while (*d && t1-- != 0)
+		d++;
+	t2 = d - dst;
+	t1 = dstsize - t2;
+	if (t1 <= 0)
+		return (t2 + ft_strlen(src));
+	while (*s)
+	{
+		if (t1 > 1)
+		{
+			*d++ = *s;
+			t1--;
+		}
+		s++;
+	}
+	*d = '\0';
+	return (t2 + (s - src));
 }

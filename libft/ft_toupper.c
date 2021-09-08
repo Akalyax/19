@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 09:22:22 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/02 09:30:54 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/01 14:59:56 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:32:51 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_toupper(int c)
 {
-	unsigned char	*tab;
-
-	tab = NULL;
-	tab = malloc(size * nmemb);
-	if (!tab)
-		return (0);
-	while (nmemb-- > 0)
-		tab[nmemb] = 0;
-	return (tab);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }

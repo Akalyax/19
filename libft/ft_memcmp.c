@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 15:51:15 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/02 09:20:01 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/01 16:42:56 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:28:42 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	x;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
+	size_t				v;
 
-	x = 0;
-	while (s[x])
-		x++;
-	while (s[x] != c && x > 0)
-		x--;
-	if (s[x] == '\0' || s[x] == c)
-		return ((char *)s + x);
-	return (0);
-}
-
-int	main(int c, char **v)
-{
-	(void)c;
-	printf("%s\n", ft_strrchr(v[1], v[2][0]));
-	printf("%s\n", strrchr(v[1], v[2][0]));
+	str1 = s1;
+	str2 = s2;
+	v = 0;
+	if (n == 0)
+		return (str1[v] - str2[v]);
+	while (v < n - 1 && str1[v] == str2[v])
+		v++;
+	return (str1[v] - str2[v]);
 }

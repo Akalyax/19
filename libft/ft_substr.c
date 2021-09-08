@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 13:07:04 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/01 13:17:08 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/02 09:39:53 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:32:28 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	size;
+#include "libft.h"
 
-	size = 0;
-	while (dstsize-- > 1 && *src && *dst)
-	{
-		*dst++ = *src++;
-		size++;
-	}
-	*dst = '\0';
-	return (size);
+char	*ft_substr(char const *c, unsigned int start, size_t len)
+{
+	char	*tab;
+	size_t	l;
+
+	l = -1;
+	tab = NULL;
+	if (len == 0)
+		return (0);
+	tab = malloc(len + 1);
+	while (++l < len)
+		tab[l] = c[start + l];
+	return (tab);
 }

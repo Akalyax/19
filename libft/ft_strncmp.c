@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/03 11:03:18 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/03 11:14:07 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/01 15:56:43 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:31:28 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	int		c1;
-	int		c2;
-	char	*tab;
+#include "libft.h"
 
-	c1 = 0;
-	c2 = 0;
-	tab = NULL;
-	while (s1[c1])
-		c1++;
-	while (s2[c2])
-		c2++;
-	if (c1 == 0 && c2 == 0)
-		return (NULL);
-	tab = malloc(c1 + c2);
-	c1 = 0;
-	while (*s1)
-		tab[c1++] = *s1++;
-	while (*s2)
-		tab[c1++] = *s2++;
-	tab[c1] = '\0';
-	return (tab);
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	x;
+
+	x = 0;
+	if (n <= 0)
+		return (0);
+	while (*s1 && *s1 == *s2 && x < n - 1)
+		x++;
+	return (*s1 - *s2);
 }

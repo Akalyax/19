@@ -1,46 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/04 12:18:37 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/04 12:28:01 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/01 11:08:51 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/08 16:27:08 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
-char	*ft_itoa(int n)
-{
-	int		x;
-	int		neg;
-	int		t;
-	char	*tab;
-	int		v;
+#include "libft.h"
 
-	v = 0;
-	t = 1;
-	neg = 1;
-	if (n < 0)
-		neg = -neg;
-	x = neg * n;
-	while (x > 9)
-	{
-		x = x / 10;
-		t++;
-	}
-	n = n * neg;
-	tab = malloc(t + 1);
-	while (v < t)
-	{
-		tab[v++] = n % 10;
-		n = n / 10;
-	}
-	return (tab);
-}
-int	main(int x, char **v)
+int	ft_isalpha(int c)
 {
-	(void)x;
-	printf("%s\n", ft_itoa(atoi(v[1])));
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
