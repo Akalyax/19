@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaeyens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:42:56 by sbaeyens          #+#    #+#             */
-/*   Updated: 2021/09/01 16:53:23 by sbaeyens         ###   ########.fr       */
+/*   Created: 2021/09/02 09:22:22 by sbaeyens          #+#    #+#             */
+/*   Updated: 2021/09/02 09:30:54 by sbaeyens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	const unsigned char *str1;
-	const unsigned char *str2;
-	size_t	v;
+#include <stdlib.h>
 
-	str1 = s1;
-	str2 = s2;
-	v = 0;
-	if (n == 0)
-		return (str1[v] - str2[v]);
-	while (v < n - 1 && str1[v] == str2[v])
-		v++;
-	return (str1[v] - str2[v]);
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*tab;
+
+	tab = NULL;
+	tab = malloc(size * nmemb);
+	if (!tab)
+		return (0);
+	while (nmemb-- > 0)
+		tab[nmemb] = 0;
+	return (tab);
 }
