@@ -4,5 +4,6 @@ My project at 19'
 Project did during the Piscine
 # Piscine-Reload
 27 exercices from Piscine --> finished Aug 31 14:17
-# Libft
-First project at 19, make our own library for personnal and futur use.
+
+
+This project retrace my time at de "piscine" during summer at school 19'
